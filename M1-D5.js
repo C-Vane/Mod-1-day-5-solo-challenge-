@@ -137,7 +137,7 @@ const sum = 10 + 20;
 /* Ex.C  
     Create a variable random that contains a random number between 0 and 20 (should be randomly created at each execution)
 */
-let random= Math.floor(Math.random()*21);
+let random= Math.floor(Math.random() *21);
 /* Ex.D
     Create a variable Me containing and object with the current information: Name = Your Name, Surname = Your Surname, Age = Your Age
 */
@@ -163,11 +163,11 @@ personal_info.skills.pop();
 /* Ex.1
     Write the function Dice that randomize an integer number between 1 and 6
 */
-const dice = () => Math.floor(Math.random()*6)+1;
+const dice = () => Math.floor(Math.random() * 6) + 1;
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */
-const WhoIsBigger = (n1,n2) => (n1 > n2) ? n1: n2;
+const WhoIsBigger = (n1, n2) => (n1 > n2) ? n1: n2;
 /* Ex.3
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]
@@ -176,7 +176,7 @@ const SplitMe = (S) => S.split(" ");
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */
-const DeleteOne = (S,B) => (B === true)? S.substring(1) : S.substring(0, S.length-2);
+const DeleteOne = (S, B) => (B === true)? S.substring(1) : S.substring(0, S.length-2);
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
@@ -186,9 +186,9 @@ const OnlyLettersWithNormal = (S) => {
   let result="";
   
     for(let i = 0; i<S.length ; i++){
-      if( parseInt(S.charCodeAt(i))-48 >= '0' &&  parseInt(S.charCodeAt(i))-48 <= '9'){
+      if( parseInt(S.charCodeAt(i))-48 >= '0' &&  parseInt(S.charCodeAt(i)) - 48 <= '9'){
   
-      } else result+=(S.charAt(i));
+      } else result += (S.charAt(i));
 
     }
     return result;
@@ -206,11 +206,11 @@ const IsThisAnEmail = (S) => {
     // Find the "@"
     if (index_found_at >-1){
       //Check if there is only one "@" and if there is a "." after 3 char after "@"
-      if (S.includes('@', index_found_at+1) !== true && S.includes(".", S.indexOf('@')+3) ===true )
+      if (S.includes('@', index_found_at+1) !== true && S.includes(".", S.indexOf('@')+3) === true )
       {
        index_found_dot= S.indexOf(".",index_found_at);
        //Check if there is only 1 "." after "@" and if the given string doesn't start or end with "@" and/or "."
-       if(S.includes('.', index_found_dot+1) !== true && (S.startsWith(".") || S.startsWith("@") || S.endsWith(".") || S.endsWith("@")) !== true)
+       if(S.includes('.', index_found_dot + 1) !== true && (S.startsWith(".") || S.startsWith("@") || S.endsWith(".") || S.endsWith("@")) !== true)
        return true;
       }
     }
@@ -249,10 +249,10 @@ const roll = {
   values: [],
   sum: 0
   }; 
-  for(i=0; i<times; i++){
+  for(i = 0; i < times; i++){
     temp = dice();
     roll.values.push(temp);
-    roll.sum+=temp;
+    roll.sum += temp;
   }
 
   return roll;
@@ -266,7 +266,7 @@ const HowManyDays = (Data) =>{
   Data= Date.parse(Data);
   Data=(Math.abs(Date.parse(today)-Data));
  
-  return( Math.floor((Data/(1000*3600*24))));
+  return( Math.floor((Data / (1000 * 3600 * 24))));
 }
 //console.log(HowManyDays("1999/08/30"))
 /* Ex.10
@@ -304,13 +304,13 @@ const DeleteProp = ( Obj, strg) => {
     Write the function OlderMovie that finds the older movie in the array
 */
 const OlderMovie= (movieslist) => {
-  let temp=0;
-  let oldest=[];
-  for(let i = 0; i < movieslist.length-1; i++){
-    oldest=movieslist[0].Year;
+  let temp = 0;
+  let oldest = [];
+  for(let i = 0; i < movieslist.length - 1; i++){
+    oldest = movieslist[0].Year;
     if (movieslist[i].Year <= oldest){ 
-      temp=i; 
-      oldest=movieslist[i].Year;
+      temp = i; 
+      oldest = movieslist[i].Year;
     }
   }
   return(movieslist[temp]);
@@ -320,14 +320,14 @@ const OlderMovie= (movieslist) => {
 /* Ex.13
     Write the function CountMovies that returns the number of movies into the array
 */
-const CountMovies= (movarr) => movarr.length;
+const CountMovies = (movarr) => movarr.length;
 
 /* Ex.14
     Write the function OnlyTitles that creates an array with only the titles of the movies
 */
-const OnlyTitles= (movarr) => {
-  let only_titles=[];
-  for(let i=0; i<movarr.length;i++) only_titles.push(movarr[i].Title);
+const OnlyTitles = (movarr) => {
+  let only_titles = [];
+  for(let i = 0; i < movarr.length; i++) only_titles.push(movarr[i].Title);
   
   return only_titles
 }
@@ -336,8 +336,8 @@ const OnlyTitles= (movarr) => {
 /* Ex.15
    Write the function OnlyThisMillennium that returns only the movies produced in this millennium
 */
-const OnlyThisMillennium= (movarr) => {
-  let only_this_millenium=[];
+const OnlyThisMillennium = (movarr) => {
+  let only_this_millenium = [];
   for(let i = 0; i < movarr.length; i++){
         if (Number(movarr[i].Year) >= 2000){ 
          only_this_millenium.push(movarr[i]);
@@ -349,8 +349,8 @@ const OnlyThisMillennium= (movarr) => {
 /* Ex.16 
     Write the function GetMovieById that receives an ID and returns the movie with the given ID
 */
-const GetMovieById= (arr, id) => {
-  let movie_by_id=[];
+const GetMovieById = (arr, id) => {
+  let movie_by_id = [];
   for(let i = 0; i < arr.length; i++){
         if (arr[i].imdbID.localeCompare(id) === 0){ 
           movie_by_id.push(arr[i]); 
@@ -362,19 +362,19 @@ const GetMovieById= (arr, id) => {
 /* Ex.17
     Write the function SumYears that returns the sum of the years the movie has been produced
 */
-const SumYears= (movielist) => {
-  let sum_years=[];
+const SumYears = (movielist) => {
+  let sum_years = [];
   for(let i = 0; i < movielist.length; i++){
-        sum_years+= movielist[i].year;
+        sum_years += movielist[i].year;
     }
-    return movie_by_id;
+    return sum_years;
 }
 
 /* Ex.18
     Write the function SearchMovie that receives a string and returns all the movies with that string in the title
 */
-const SearchMovie= (movielist, title) => {
-  let movie_match=[];
+const SearchMovie = (movielist, title) => {
+  let movie_match = [];
   for(let i = 0; i < movielist.length; i++){
         if(movielist[i].Title.toLowerCase().includes(title.toLowerCase(), 0)) movie_match.push(movielist[i]);
     }
@@ -384,7 +384,7 @@ const SearchMovie= (movielist, title) => {
 /* Ex.19
     Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
 */
-const SearchAndDevide= (movielist, title) => {
+const SearchAndDevide = (movielist, title) => {
   const movies={
     match:[],
     nonMatch:[]
@@ -399,7 +399,7 @@ const SearchAndDevide= (movielist, title) => {
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
-const DeleteX = (givenarrey , elementnumber) => delete givenarrey[elementnumber+1];
+const DeleteX = (givenarrey , elementnumber) => delete givenarrey[elementnumber + 1];
 
 // JS Advanced
 
@@ -412,7 +412,7 @@ const DeleteX = (givenarrey , elementnumber) => delete givenarrey[elementnumber+
   ***
 */
 const HalfTree = (height) =>{
-  for(let i=1; i<=height; i++){
+  for(let i = 1; i <= height; i++){
     console.log("*".repeat(i));
   }
   return 
@@ -427,8 +427,8 @@ const HalfTree = (height) =>{
   *****
 */
 const Tree = (height) =>{
-  for(let i=1; i<=height; i++){
-    console.log(" ".repeat(Math.floor((height-i))),"*".repeat((i*2)-1));
+  for(let i = 1 ; i <= height; i++){
+    console.log(" ".repeat(height-i),"*".repeat(( i * 2 ) - 1));
   }
   return 
 }
@@ -437,45 +437,45 @@ const Tree = (height) =>{
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
-const IsItPrime= (num) =>{
-  num=Math.abs(num);
+const IsItPrime = (num) => {
+  num = Math.abs(num);
   let prime;
-  if(num === 1) prime= true
+  if(num === 1) prime = true
   else{
-  for (let i=2; i < Math.sqrt(num)+1; i++){
-     if(num%i=== 0){
-      prime=false;
+  for (let  i= 2; i < Math.sqrt(num) + 1; i++){
+     if(num%i === 0){
+      prime = false;
       break;
-     } else prime=true;
+     } else prime = true;
   }
 }
   return prime;
 } 
 
 
-/* CONSOLE LOGS FOR THE EX:1-23
-console.log("Ex. 1 Dice", dice());
-console.log("Ex. 2 Who is bigger", WhoIsBigger(15,16));
-console.log("Ex. 3 Split me", SplitMe("I Love what ever"));
-console.log("Ex. 4 Delete a letter", DeleteOne("I Love what ever" , true));
-console.log("Ex. 5A Only letters", OnlyLettersWithNormal("I Love 123 what ever"));
-console.log("Ex. 5B Only letters using rejex", OnlyLettersWithRegular("I Love 123 what ever"));
-console.log("Ex. 6 check if it an email ", IsThisAnEmail("vanebrunocattabini@gmail.com"));
-console.log("Ex. 7 what day is it?", WhatDayIsIt());
-console.log("Ex. 8 Roll the dice", RollTheDices(5));
-console.log("Ex. 9 How many days since", HowManyDays('1999/04/12'));
-console.log("Ex. 10 Is today my Birthday", IsTodayMyBDay());
-console.log("Ex. 11 Delete a property", DeleteProp(personal_info,"birthday"));
-console.log("Ex.12 What is the Oldest movie?",(OlderMovie(movies)));
-console.log("Ex.13 Number of movies:", CountMovies(movies));
-console.log("Ex.14 OnlyTitles", OnlyTitles(movies));
-console.log("Ex.15 Only this Millennium", OnlyThisMillennium(movies));
-console.log("Ex.16 Get movie by ID", GetMovieById(movies, "tt1731697"));
-console.log("Ex.17 Sum of the years of movie", SumYears(movies));
-console.log("Ex.18A Search movies with given title", Search(movies, "Lord"));
-console.log("Ex.18B Search movies with title using ex.19 ",SearchAndDevide(movies,"Lord").match)
-console.log("Ex.19 Movies that match and that don't", SearchAndDevide(movies,"Avengers"));
-console.log("Ex.20 Delete Array element", DeleteX(movies,2));
-HalfTree(4)   //Ex.21
-Tree(4)       //Ex.22
-console.log("Ex.23 Is it a Prime?", IsItPrime(19));*/
+//CONSOLE LOGS FOR THE EX:1-23
+// console.log("Ex. 1 Dice: ", dice());
+// console.log("Ex. 2 Who is bigger: ", WhoIsBigger(15,16));
+// console.log("Ex. 3 Split me: ", SplitMe("I Love what ever"));
+// console.log("Ex. 4 Delete a letter: ", DeleteOne("I Love what ever" , true));
+// console.log("Ex. 5A Only letters: ", OnlyLettersWithNormal("I Love 123 what ever"));
+// console.log("Ex. 5B Only letters using rejex: ", OnlyLettersWithRegular("I Love 123 what ever"));
+// console.log("Ex. 6 check if it an email: ", IsThisAnEmail("vanebrunocattabini@gmail.com"));
+// console.log("Ex. 7 what day is it?", WhatDayIsIt());
+// console.log("Ex. 8 Roll the dice:", RollTheDices(5));
+// console.log("Ex. 9 How many days since:", HowManyDays('1999/04/12'));
+// console.log("Ex. 10 Is today my Birthday:  ", IsTodayMyBDay());
+// console.log("Ex. 11 Delete a property: ", DeleteProp(personal_info,"birthday"));
+// console.log("Ex.12 What is the Oldest movie? ",(OlderMovie(movies)));
+// console.log("Ex.13 Number of movies:", CountMovies(movies));
+// console.log("Ex.14 Only Titles of the movies:", OnlyTitles(movies));
+// console.log("Ex.15 Movied of only this Millennium:", OnlyThisMillennium(movies));
+// console.log("Ex.16 Get movie by ID: ", GetMovieById(movies, "tt1731697"));
+// console.log("Ex.17 Sum of the years of movie: ", SumYears(movies));
+// console.log("Ex.18A Search movies with given title: ", SearchMovie(movies, "Lord"));
+// console.log("Ex.18B Search movies with title using ex.19: ",SearchAndDevide(movies,"Lord").match)
+// console.log("Ex.19 Movies that match and that don't matvh: ", SearchAndDevide(movies,"Avengers"));
+// console.log("Ex.20 Delete Array element: ", DeleteX(movies,2));
+// HalfTree(4)   //Ex.21
+// Tree(4)       //Ex.22
+// console.log("Ex.23 Is it a Prime? ", IsItPrime(19));
