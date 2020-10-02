@@ -474,7 +474,7 @@ const IsItPrime = (num) => {
 // console.log("Ex.17 Sum of the years of movie: ", SumYears(movies));
 // console.log("Ex.18A Search movies with given title: ", SearchMovie(movies, "Lord"));
 // console.log("Ex.18B Search movies with title using ex.19: ",SearchAndDevide(movies,"Lord").match)
-// console.log("Ex.19 Movies that match and that don't matvh: ", SearchAndDevide(movies,"Avengers"));
+// console.log("Ex.19 Movies that match and that don't match: ", SearchAndDevide(movies,"Avengers"));
 // console.log("Ex.20 Delete Array element: ", DeleteX(movies,2));
 // HalfTree(4)   //Ex.21
 // Tree(4)       //Ex.22
