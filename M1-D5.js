@@ -8,6 +8,7 @@
     - Complete as many exercise that you can
     - Publish them into your own GitHub account before 17.00 (Berlin Time)
 */
+/* Movies array is an example array, used for the exs. Don't change it :)  */
 const movies = [
   {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -256,7 +257,6 @@ const roll = {
 
   return roll;
 }
-console.log(RollTheDices(2));
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */
@@ -300,53 +300,106 @@ const DeleteProp = ( Obj, strg) => {
   return Obj;
 }
 
-//console.log(DeleteProp(personal_info, 'birthday' ))
 /* Ex.12 TODO 
     Write the function OlderMovie that finds the older movie in the array
 */
-const OlderMovie= (arr) => {
+const OlderMovie= (movieslist) => {
   let temp=0;
-  for(let i = 0; i < arr.length-1; i++){
-        if (Number(arr[i].Year) <= Number(arr[i+1].Year)){ 
-         temp=i; 
-      }
-      else temp=i+1;
-    console.log()
+  let oldest=[];
+  for(let i = 0; i < movieslist.length-1; i++){
+    oldest=movieslist[0].Year;
+    if (movieslist[i].Year <= oldest){ 
+      temp=i; 
+      oldest=movieslist[i].Year;
     }
-    return arr[temp].Title;
+  }
+  return(movieslist[temp]);
 }
+
 
 /* Ex.13
     Write the function CountMovies that returns the number of movies into the array
 */
+const CountMovies= (movarr) => movarr.length;
 
 /* Ex.14
     Write the function OnlyTitles that creates an array with only the titles of the movies
 */
+const OnlyTitles= (movarr) => {
+  let only_titles=[];
+  for(let i=0; i<movarr.length;i++) only_titles.push(movarr[i].Title);
+  
+  return only_titles
+}
+
 
 /* Ex.15
    Write the function OnlyThisMillennium that returns only the movies produced in this millennium
 */
+const OnlyThisMillennium= (movarr) => {
+  let only_this_millenium=[];
+  for(let i = 0; i < movarr.length; i++){
+        if (Number(movarr[i].Year) >= 2000){ 
+         only_this_millenium.push(movarr[i]);
+      }
+    }
+    return only_this_millenium;
+}
 
 /* Ex.16 
     Write the function GetMovieById that receives an ID and returns the movie with the given ID
 */
+const GetMovieById= (arr, id) => {
+  let movie_by_id=[];
+  for(let i = 0; i < arr.length; i++){
+        if (arr[i].imdbID.localeCompare(id) === 0){ 
+          movie_by_id.push(arr[i]); 
+      }
+    }
+    return movie_by_id;
+}
 
 /* Ex.17
     Write the function SumYears that returns the sum of the years the movie has been produced
 */
+const SumYears= (movielist) => {
+  let sum_years=[];
+  for(let i = 0; i < movielist.length; i++){
+        sum_years+= movielist[i].year;
+    }
+    return movie_by_id;
+}
 
 /* Ex.18
     Write the function SearchMovie that receives a string and returns all the movies with that string in the title
 */
+const SearchMovie= (movielist, title) => {
+  let movie_match=[];
+  for(let i = 0; i < movielist.length; i++){
+        if(movielist[i].Title.toLowerCase().includes(title.toLowerCase(), 0)) movie_match.push(movielist[i]);
+    }
+    return movie_match;
+}
 
 /* Ex.19
     Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
 */
+const SearchAndDevide= (movielist, title) => {
+  const movies={
+    match:[],
+    nonMatch:[]
+  }
+  for(let i = 0; i < movielist.length; i++){
+      if(movielist[i].Title.toLowerCase().includes(title.toLowerCase())) movies.match.push(movielist[i]);
+      else movies.nonMatch.push(movielist[i])
+    }
+  return movies;
+}
 
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
+const DeleteX = (givenarrey , elementnumber) => delete givenarrey[elementnumber+1];
 
 // JS Advanced
 
@@ -358,6 +411,12 @@ const OlderMovie= (arr) => {
   **
   ***
 */
+const HalfTree = (height) =>{
+  for(let i=1; i<=height; i++){
+    console.log("*".repeat(i));
+  }
+  return 
+}
 
 /* Ex.22 
   Create a function Tree that receives the height and creates an "*" tree with that height
@@ -367,19 +426,40 @@ const OlderMovie= (arr) => {
    *** 
   *****
 */
+const Tree = (height) =>{
+  for(let i=1; i<=height; i++){
+    console.log(" ".repeat(Math.floor((height-i))),"*".repeat((i*2)-1));
+  }
+  return 
+}
+
 
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
+const IsItPrime= (num) =>{
+  num=Math.abs(num);
+  let prime;
+  if(num === 1) prime= true
+  else{
+  for (let i=2; i < Math.sqrt(num)+1; i++){
+     if(num%i=== 0){
+      prime=false;
+      break;
+     } else prime=true;
+  }
+}
+  return prime;
+} 
 
-/* Movies array is an example array, used for the exs. Don't change it :)  */
 
+/* CONSOLE LOGS FOR THE EX:1-23
 console.log("Ex. 1 Dice", dice());
 console.log("Ex. 2 Who is bigger", WhoIsBigger(15,16));
 console.log("Ex. 3 Split me", SplitMe("I Love what ever"));
 console.log("Ex. 4 Delete a letter", DeleteOne("I Love what ever" , true));
 console.log("Ex. 5A Only letters", OnlyLettersWithNormal("I Love 123 what ever"));
-console.log("Ex. 5B Only letters rejex", OnlyLettersWithRegular("I Love 123 what ever"));
+console.log("Ex. 5B Only letters using rejex", OnlyLettersWithRegular("I Love 123 what ever"));
 console.log("Ex. 6 check if it an email ", IsThisAnEmail("vanebrunocattabini@gmail.com"));
 console.log("Ex. 7 what day is it?", WhatDayIsIt());
 console.log("Ex. 8 Roll the dice", RollTheDices(5));
@@ -387,3 +467,15 @@ console.log("Ex. 9 How many days since", HowManyDays('1999/04/12'));
 console.log("Ex. 10 Is today my Birthday", IsTodayMyBDay());
 console.log("Ex. 11 Delete a property", DeleteProp(personal_info,"birthday"));
 console.log("Ex.12 What is the Oldest movie?",(OlderMovie(movies)));
+console.log("Ex.13 Number of movies:", CountMovies(movies));
+console.log("Ex.14 OnlyTitles", OnlyTitles(movies));
+console.log("Ex.15 Only this Millennium", OnlyThisMillennium(movies));
+console.log("Ex.16 Get movie by ID", GetMovieById(movies, "tt1731697"));
+console.log("Ex.17 Sum of the years of movie", SumYears(movies));
+console.log("Ex.18A Search movies with given title", Search(movies, "Lord"));
+console.log("Ex.18B Search movies with title using ex.19 ",SearchAndDevide(movies,"Lord").match)
+console.log("Ex.19 Movies that match and that don't", SearchAndDevide(movies,"Avengers"));
+console.log("Ex.20 Delete Array element", DeleteX(movies,2));
+HalfTree(4)   //Ex.21
+Tree(4)       //Ex.22
+console.log("Ex.23 Is it a Prime?", IsItPrime(19));*/
