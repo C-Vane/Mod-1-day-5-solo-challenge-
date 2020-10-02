@@ -301,7 +301,7 @@ const DeleteProp = ( Obj, strg) => {
 }
 
 //console.log(DeleteProp(personal_info, 'birthday' ))
-/* Ex.12 
+/* Ex.12 TODO 
     Write the function OlderMovie that finds the older movie in the array
 */
 const OlderMovie= (arr) => {
@@ -310,7 +310,8 @@ const OlderMovie= (arr) => {
         if (Number(arr[i].Year) <= Number(arr[i+1].Year)){ 
          temp=i; 
       }
-    console.log(temp)
+      else temp=i+1;
+    console.log()
     }
     return arr[temp].Title;
 }
@@ -382,7 +383,7 @@ console.log("Ex. 5B Only letters rejex", OnlyLettersWithRegular("I Love 123 what
 console.log("Ex. 6 check if it an email ", IsThisAnEmail("vanebrunocattabini@gmail.com"));
 console.log("Ex. 7 what day is it?", WhatDayIsIt());
 console.log("Ex. 8 Roll the dice", RollTheDices(5));
-console.log("Ex. 9 How many days since", HowManyDays(1954/04/12));
+console.log("Ex. 9 How many days since", HowManyDays('1999/04/12'));
 console.log("Ex. 10 Is today my Birthday", IsTodayMyBDay());
-console.log("Ex. 11 Delete a property", DeleteProp(personal_info,birthday));
+console.log("Ex. 11 Delete a property", DeleteProp(personal_info,"birthday"));
 console.log("Ex.12 What is the Oldest movie?",(OlderMovie(movies)));
