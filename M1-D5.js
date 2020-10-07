@@ -432,7 +432,7 @@ const Tree = (height) =>{
   }
   return 
 }
-
+Tree();
 
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
